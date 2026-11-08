@@ -22,3 +22,8 @@ const processInput = (input: string | number | boolean) => {
     }
 }
 
+
+const formatCoordinate = (coordinate: readonly [number, number, string])=> {
+    return `Location: ${coordinate[2]} (${coordinate[0]} - ${coordinate[1]})`;
+}
+

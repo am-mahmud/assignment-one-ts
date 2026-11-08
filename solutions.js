@@ -7,23 +7,21 @@
 //         return a * b;
 //     }
 // }
-var processInput = function (input) {
-    if (typeof input === 'string') {
-        return input.trim().toUpperCase();
-    }
-    else if (typeof input === 'number') {
-        return (input * 10);
-    }
-    else if (typeof input === 'boolean') {
-        if (input === true) {
-            return 'Active';
-        }
-        else {
-            return 'Inactive';
-        }
-    }
+// const processInput = (input: string | number | boolean) => {
+//     if (typeof input === 'string') {
+//         return input.trim().toUpperCase();
+//     }else if (typeof input === 'number') {
+//         return (input * 10);
+//     }else if (typeof input === 'boolean') {
+//         if (input === true) {
+//             return 'Active';
+//         }else {
+//             return 'Inactive';
+//         }
+//     }
+// }
+var formatCoordinate = function (cordinate) {
+    return "Location: ".concat(cordinate[2], " (").concat(cordinate[0], " - ").concat(cordinate[1], ")");
 };
-console.log(processInput('   hello world   ')); // Output: 'HELLO WORLD'
-console.log(processInput(5)); // Output: 50
-console.log(processInput(true)); // Output: 'Active'
-console.log(processInput(false)); // Output: 'Inactive'
+console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
+;
