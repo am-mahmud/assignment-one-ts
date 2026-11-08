@@ -6,7 +6,19 @@ const multiplyValue = (a: number, b?: number) => {
     }else {
         return a * b;
     }
-
 }
 
-console.log(multiplyValue(5,0));
+const processInput = (input: string | number | boolean) => {
+    if (typeof input === 'string') {
+        return input.trim().toUpperCase();
+    }else if (typeof input === 'number') {
+        return (input * 10);
+    }else if (typeof input === 'boolean') {
+        if (input === true) {
+            return 'Active';
+        }else {
+            return 'Inactive';
+        }
+    }
+}
+
