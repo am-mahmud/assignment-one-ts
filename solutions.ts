@@ -22,11 +22,9 @@ const processInput = (input: string | number | boolean) => {
     }
 }
 
-
 const formatCoordinate = (coordinate: readonly [latitude: number, longitude: number, locationName: string])=> {
     return `Location: ${coordinate[2]} (${coordinate[0]} - ${coordinate[1]})`;
 }
-
 
 const concatenateArrays = <T>(arr1: T[], arr2: T[], arr3?: T[] ) : T[] => {
     return [...arr1, ...arr2, ...arr3 || []];
@@ -43,7 +41,6 @@ type MinStudents = number;
 const getPopularCourses = (courses: Course[], minStudents:MinStudents ) : Course [] => {
    return courses.filter(course => course.students >= minStudents && course.isPublished);
 }
-
 
 const pluckValues = <T, K extends keyof T>(users: T[], key: K) : T[K][] => {
     return users.map(item => item[key]);
@@ -76,5 +73,21 @@ class Manager extends Employee {
         return `Manager of ${this.department}: ${this.name}`;
     }
 }
+
+const validateAgeAsync = (age: number): Promise<string> => {
+  return new Promise((resolve, reject) => {
+    if (age < 18) {
+      reject(new Error("Access Denied: Must be 18 or older"));
+      return;
+    }
+
+    setTimeout(() => {
+      resolve("Access Granted");
+    }, 1000);
+  });
+};
+
+
+export { validateAgeAsync };
 
 
