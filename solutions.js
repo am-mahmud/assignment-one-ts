@@ -7,21 +7,13 @@
 //         return a * b;
 //     }
 // }
-// const processInput = (input: string | number | boolean) => {
-//     if (typeof input === 'string') {
-//         return input.trim().toUpperCase();
-//     }else if (typeof input === 'number') {
-//         return (input * 10);
-//     }else if (typeof input === 'boolean') {
-//         if (input === true) {
-//             return 'Active';
-//         }else {
-//             return 'Inactive';
-//         }
-//     }
-// }
-var formatCoordinate = function (cordinate) {
-    return "Location: ".concat(cordinate[2], " (").concat(cordinate[0], " - ").concat(cordinate[1], ")");
+var getPopularCourses = function (courses, minStudents) {
+    return courses.filter(function (course) { return course.students >= minStudents && course.isPublished; });
 };
-console.log(formatCoordinate([23.81, 90.41, "Dhaka"]));
-;
+var courses = [
+    { title: "TypeScript Mastery", students: 120, isPublished: true },
+    { title: "Draft Course", students: 200, isPublished: false },
+    { title: "Basic HTML", students: 45, isPublished: true },
+    { title: "Next.js Pro", students: 85, isPublished: true }
+];
+console.log(getPopularCourses(courses, 80));
