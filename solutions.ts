@@ -10,7 +10,7 @@ const multiplyValue = (a: number, b?: number) => {
 
 const processInput = (input: string | number | boolean) => {
     if (typeof input === 'string') {
-        return input.trim().toUpperCase();
+        return input.trim().toLowerCase();
     }else if (typeof input === 'number') {
         return (input * 10);
     }else if (typeof input === 'boolean') {
@@ -23,12 +23,13 @@ const processInput = (input: string | number | boolean) => {
 }
 
 const formatCoordinate = (coordinate: readonly [latitude: number, longitude: number, locationName: string])=> {
-    return `Location: ${coordinate[2]} (${coordinate[0]} - ${coordinate[1]})`;
+    return `Location: ${coordinate[2]} (${coordinate[0]} , ${coordinate[1]})`;
 }
 
-const concatenateArrays = <T>(arr1: T[], arr2: T[], arr3?: T[] ) : T[] => {
-    return [...arr1, ...arr2, ...arr3 || []];
+const concatenateArrays = <T>(...arrays: T[][] ) : T[] => {
+    return arrays.flat();
 }
+
 
 interface Course {
     title: string;
