@@ -1,77 +1,86 @@
-const multiplyValue = (a: number, b?: number) => {
-    if (typeof b === 'undefined') {
-        return a * 2;
-    }else if (a === 0 || b === 0) {
-        return 0;
-    }else {
-        return a * b;
-    }
-}
-
-const processInput = (input: string | number | boolean): string | number => {
-    if (typeof input === 'string') {
-        return input.trim().toLowerCase();
-    }
-    if (typeof input === 'number') {
-        return input * 10;
-    }
-    return input === true ? 'Active' : 'Inactive';
+const multiplyValue = (a: number, b?: number) : number => {
+  if (typeof b === "undefined") {
+    return a * 2;
+  } else if (a === 0 || b === 0) {
+    return 0;
+  } else {
+    return a * b;
+  }
 };
 
-const formatCoordinate = (coordinate: readonly [latitude: number, longitude: number, locationName: string])=> {
-    return `Location: ${coordinate[2]} (${coordinate[0]}, ${coordinate[1]})`;
-}
+const processInput = (input: string | number | boolean): string | number => {
+  if (typeof input === "string") {
+    return input.trim().toLowerCase();
+  }
+  if (typeof input === "number") {
+    return input * 10;
+  }
+  return input === true ? "Active" : "Inactive";
+};
 
-const concatenateArrays = <T>(...arrays: T[][] ) : T[] => {
-    return arrays.flat();
-}
+const formatCoordinate = (
+  coordinate: readonly [
+    latitude: number,
+    longitude: number,
+    locationName: string,
+  ],
+) : string => {
+  return `Location: ${coordinate[2]} (${coordinate[0]}, ${coordinate[1]})`;
+};
 
+const concatenateArrays = <T>(...arrays: T[][]): T[] => {
+  return arrays.flat();
+};
 
 interface Course {
-    title: string;
-    students: number;
-    isPublished: boolean;
+  title: string;
+  students: number;
+  isPublished: boolean;
 }
 
 type MinStudents = number;
 
-const getPopularCourses = (courses: Course[], minStudents:MinStudents ) : Course [] => {
-   return courses.filter(course => course.students >= minStudents && course.isPublished);
-}
+const getPopularCourses = (
+  courses: Course[],
+  minStudents: MinStudents,
+): Course[] => {
+  return courses.filter(
+    (course) => course.students >= minStudents && course.isPublished,
+  );
+};
 
-const pluckValues = <T, K extends keyof T>(users: T[], key: K) : T[K][] => {
-    return users.map(item => item[key]);
-}
+const pluckValues = <T, K extends keyof T>(users: T[], key: K): T[K][] => {
+  return users.map((item) => item[key]);
+};
 
 class Employee {
-   protected name: string;
-   private baseSalary: number;
+  protected name: string;
+  private baseSalary: number;
 
-    constructor(name: string, baseSalary: number) {
-        this.name = name;
-        this.baseSalary = baseSalary;
-    }
+  constructor(name: string, baseSalary: number) {
+    this.name = name;
+    this.baseSalary = baseSalary;
+  }
 
-     getDetails() {
-       return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
-    }
-
+  getDetails() : string {
+    return `Employee: ${this.name}, Base Salary: ${this.baseSalary}`;
+  }
 }
 
 class Manager extends Employee {
-   private department: string;
+  private department: string;
 
-    constructor(name: string, baseSalary: number, department: string) {
-        super(name, baseSalary);
-        this.department = department;
-    }
+  constructor(name: string, baseSalary: number, department: string) {
+    super(name, baseSalary);
+    this.department = department;
+  }
 
-   getRoleInfo() {
-        return `Manager of ${this.department}: ${this.name}`;
-    }
+  getRoleInfo() : string {
+    return `Manager of ${this.department}: ${this.name}`;
+  }
 }
 
-const validateAgeAsync = (age: number): Promise<string> => {
+const validateAgeAsync = async (age: number): Promise<string> => {
   return new Promise((resolve, reject) => {
     if (age < 18) {
       reject(new Error("Access Denied: Must be 18 or older"));
@@ -84,7 +93,5 @@ const validateAgeAsync = (age: number): Promise<string> => {
   });
 };
 
-
-export { validateAgeAsync };
 
 
