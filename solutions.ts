@@ -41,9 +41,11 @@ interface Course {
 type MinStudents = number;
 
 const getPopularCourses = (courses: Course[], minStudents:MinStudents ) : Course [] => {
-
    return courses.filter(course => course.students >= minStudents && course.isPublished);
 }
 
 
+const pluckValues = <T, K extends keyof T>(users: T[], key: K) => {
+    return users.map(item => item[key]);
+}
 
