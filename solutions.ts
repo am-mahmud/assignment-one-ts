@@ -8,22 +8,18 @@ const multiplyValue = (a: number, b?: number) => {
     }
 }
 
-const processInput = (input: string | number | boolean) => {
+const processInput = (input: string | number | boolean): string | number => {
     if (typeof input === 'string') {
         return input.trim().toLowerCase();
-    }else if (typeof input === 'number') {
-        return (input * 10);
-    }else if (typeof input === 'boolean') {
-        if (input === true) {
-            return 'Active';
-        }else {
-            return 'Inactive';
-        }
     }
-}
+    if (typeof input === 'number') {
+        return input * 10;
+    }
+    return input === true ? 'Active' : 'Inactive';
+};
 
 const formatCoordinate = (coordinate: readonly [latitude: number, longitude: number, locationName: string])=> {
-    return `Location: ${coordinate[2]} (${coordinate[0]} , ${coordinate[1]})`;
+    return `Location: ${coordinate[2]} (${coordinate[0]}, ${coordinate[1]})`;
 }
 
 const concatenateArrays = <T>(...arrays: T[][] ) : T[] => {
