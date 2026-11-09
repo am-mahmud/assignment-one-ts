@@ -2,6 +2,8 @@
 
 ## Assignment Overview
 
+This assignment covers core TypeScript concepts: optional and rest parameters, union types and type narrowing, readonly tuples, interfaces, generics, OOP access modifiers, and Promises.
+
 | # | Function / Class | Topic |
 |---|---|---|
 | 1 | `multiplyValue` | Optional parameter |
@@ -18,5 +20,6 @@
 1. [Type Narrowing in TypeScript](./type-narrowing.md)
 2. [Type vs Interface in TypeScript](./type-vs-interface.md)
 
-###
-Name: Asif Mahmud
+## Author
+
+Asif Mahmud

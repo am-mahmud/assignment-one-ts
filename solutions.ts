@@ -1,10 +1,10 @@
-const multiplyValue = (a: number, b?: number) : number => {
-  if (typeof b === "undefined") {
-    return a * 2;
-  } else if (a === 0 || b === 0) {
+const multiplyValue = (value: number, multiplier?: number) : number => {
+  if (typeof multiplier === "undefined") {
+    return value * 2;
+  } else if (value === 0 || multiplier === 0) {
     return 0;
   } else {
-    return a * b;
+    return value * multiplier;
   }
 };
 
@@ -49,8 +49,8 @@ const getPopularCourses = (
   );
 };
 
-const pluckValues = <T, K extends keyof T>(users: T[], key: K): T[K][] => {
-  return users.map((item) => item[key]);
+const pluckValues = <T, K extends keyof T>(items: T[], key: K): T[K][] => {
+  return items.map((item) => item[key]);
 };
 
 class Employee {
